@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pikibon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="console-shell">
+      <div class="console-top">
+        <p>PIKIBON POCKET</p>
+        <p>DOT MATRIX RPG</p>
+      </div>
+
+      <div class="screen-bezel">
+        <div class="screen-overlay"></div>
+        <main class="screen">
+          <section id="titleScreen" class="title-screen">
+            <p class="title-kicker">Monster capture adventure</p>
+            <h1>Pikibon</h1>
+            <p class="title-copy">A tiny retro route crawler with oddball creatures and crunchy battles.</p>
+
+            <div class="title-menu" id="titleMenu"></div>
+
+            <section id="starterSection" class="starter-section hidden">
+              <p class="textbox-label">Choose Starter</p>
+              <div id="starterGrid" class="starter-grid"></div>
+            </section>
+          </section>
+
+          <section id="gameScreen" class="game-screen hidden">
+            <header class="hud-strip panel">
+              <div>
+                <p class="hud-label">Area</p>
+                <strong id="areaLabel">Base Camp</strong>
+              </div>
+              <div>
+                <p class="hud-label">Trainers</p>
+                <strong id="trainerProgress">0 / 3</strong>
+              </div>
+              <div>
+                <p class="hud-label">Badge</p>
+                <strong id="badgeLabel">0 / 1</strong>
+              </div>
+              <button id="saveButton" class="mini-button" type="button">Save</button>
+            </header>
+
+            <section class="main-layout">
+              <div class="left-column">
+                <article class="panel world-panel">
+                  <div class="panel-head">
+                    <span>Overworld</span>
+                    <span id="worldHint">Arrows / WASD to move</span>
+                  </div>
+                  <canvas
+                    id="worldCanvas"
+                    class="world-canvas"
+                    width="288"
+                    height="288"
+                    aria-label="Pikibon overworld map"
+                  ></canvas>
+                  <div class="dpad-buttons">
+                    <button data-move="up" type="button">Up</button>
+                    <div class="dpad-row">
+                      <button data-move="left" type="button">Left</button>
+                      <button data-move="down" type="button">Down</button>
+                      <button data-move="right" type="button">Right</button>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="panel battle-panel">
+                  <div class="battle-stage">
+                    <div class="battle-card foe">
+                      <div class="battle-info">
+                        <strong id="enemyName">No encounter</strong>
+                        <span id="enemyLevel">Lv.--</span>
+                      </div>
+                      <div class="hp-track"><div id="enemyHpBar"></div></div>
+                      <span id="enemyHpText">HP -- / --</span>
+                      <div class="battle-art foe-art">
+                        <img id="enemySprite" alt="" />
+                      </div>
+                    </div>
+
+                    <div class="battle-card ally">
+                      <div class="battle-art ally-art">
+                        <img id="allySprite" alt="" />
+                      </div>
+                      <div class="battle-info">
+                        <strong id="allyName">No partner</strong>
+                        <span id="allyLevel">Lv.--</span>
+                      </div>
+                      <div class="hp-track"><div id="allyHpBar"></div></div>
+                      <span id="allyHpText">HP -- / --</span>
+                    </div>
+                  </div>
+
+                  <div class="textbox panel" id="textbox">
+                    <p class="textbox-label" id="textboxLabel">Status</p>
+                    <p id="textboxText" class="textbox-text">Welcome to Pikibon.</p>
+                    <div id="textboxMenu" class="textbox-menu"></div>
+                  </div>
+                </article>
+              </div>
+
+              <aside class="right-column">
+                <article class="panel status-panel">
+                  <div class="panel-head">
+                    <span>Party</span>
+                    <span id="partyHint">Healthy lead wins fights</span>
+                  </div>
+                  <div id="partyList" class="party-list"></div>
+                </article>
+
+                <article class="panel status-panel">
+                  <div class="panel-head">
+                    <span>Field Guide</span>
+                    <span id="seenCount">0 seen</span>
+                  </div>
+                  <div class="dex-stats">
+                    <span id="caughtCount">0 caught</span>
+                    <span id="saveStateLabel">No save yet</span>
+                  </div>
+                  <div id="journalList" class="journal-list"></div>
+                </article>
+              </aside>
+            </section>
+          </section>
+        </main>
+      </div>
+
+      <div class="console-bottom" aria-hidden="true">
+        <div class="console-dpad">
+          <span class="console-cross vertical"></span>
+          <span class="console-cross horizontal"></span>
+        </div>
+        <div class="console-buttons">
+          <span class="console-button">B</span>
+          <span class="console-button">A</span>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

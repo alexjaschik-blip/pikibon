@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <linearGradient id="reefbg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#89c9c3"/>
+      <stop offset="100%" stop-color="#558c8b"/>
+    </linearGradient>
+  </defs>
+  <rect width="240" height="240" rx="36" fill="url(#reefbg)"/>
+  <ellipse cx="120" cy="207" rx="66" ry="16" fill="#476b6a" opacity=".2"/>
+  <path d="M70 182 86 116l31-38 38-7 27 30-4 81Z" fill="#d9efea" stroke="#304246" stroke-width="6" stroke-linejoin="round"/>
+  <path d="M81 191 56 160l18-39 23 14Z" fill="#cce6e1" stroke="#304246" stroke-width="6"/>
+  <path d="M160 188l16-59 27 8-11 46Z" fill="#c6e1dc" stroke="#304246" stroke-width="6"/>
+  <path d="M111 81 123 55l32 18-8 26Z" fill="#dcefeb" stroke="#304246" stroke-width="6"/>
+  <path d="M100 86c-6-17-14-28-26-34" fill="none" stroke="#ef6a59" stroke-width="8" stroke-linecap="round"/>
+  <path d="M98 93c-9 8-16 20-20 34M151 91c15 7 24 18 28 33" fill="none" stroke="#accfc8" stroke-width="4"/>
+  <circle cx="105" cy="111" r="11" fill="#5df0ff"/>
+  <circle cx="143" cy="109" r="11" fill="#5df0ff"/>
+  <circle cx="105" cy="111" r="5" fill="#d4ffff"/>
+  <circle cx="143" cy="109" r="5" fill="#d4ffff"/>
+  <path d="M98 143c12-10 29-10 42 0" stroke="#202729" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M108 129h26l-2 27h-24Z" fill="#51f1ff" opacity=".62" stroke="#50dce4" stroke-width="3"/>
+  <circle cx="77" cy="96" r="6" fill="#e8d199"/>
+  <circle cx="155" cy="96" r="6" fill="#e8d199"/>
+  <path d="M136 95l17-7" stroke="#e6c67a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M78 122l12-3M154 120l18 0M88 156l9 0M154 155l10-3" stroke="#7ca8a2" stroke-width="4" stroke-linecap="round"/>
+</svg>
