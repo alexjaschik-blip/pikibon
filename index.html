@@ -1,154 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pikibon</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <div class="console-shell">
-      <div class="console-top">
-        <p>PIKIBON POCKET</p>
-        <p>DOT MATRIX RPG</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Jaschik — Filmmaker</title>
+  <meta name="description" content="Alex Jaschik — filmmaker, videographer, and founder of Doors of Athens." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./portfolio.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">A·J</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#doors">Doors of Athens</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Filmmaker &amp; Videographer</p>
+      <h1 class="hero-name">Alex<br>Jaschik</h1>
+      <p class="hero-tagline">Stories told in light, shadow, and the silence between frames.</p>
+      <a href="#about" class="hero-scroll" aria-label="Scroll down">
+        <span class="scroll-line"></span>
+      </a>
+    </div>
+    <div class="hero-rule"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="container container--narrow">
+      <div class="section-label">
+        <span class="label-num">01</span>
+        <span class="label-text">About</span>
       </div>
 
-      <div class="screen-bezel">
-        <div class="screen-overlay"></div>
-        <main class="screen">
-          <section id="titleScreen" class="title-screen">
-            <p class="title-kicker">Monster capture adventure</p>
-            <h1>Pikibon</h1>
-            <p class="title-copy">A tiny retro route crawler with oddball creatures and crunchy battles.</p>
-
-            <div class="title-menu" id="titleMenu"></div>
-
-            <section id="starterSection" class="starter-section hidden">
-              <p class="textbox-label">Choose Starter</p>
-              <div id="starterGrid" class="starter-grid"></div>
-            </section>
-          </section>
-
-          <section id="gameScreen" class="game-screen hidden">
-            <header class="hud-strip panel">
-              <div>
-                <p class="hud-label">Area</p>
-                <strong id="areaLabel">Base Camp</strong>
-              </div>
-              <div>
-                <p class="hud-label">Trainers</p>
-                <strong id="trainerProgress">0 / 3</strong>
-              </div>
-              <div>
-                <p class="hud-label">Badge</p>
-                <strong id="badgeLabel">0 / 1</strong>
-              </div>
-              <button id="saveButton" class="mini-button" type="button">Save</button>
-            </header>
-
-            <section class="main-layout">
-              <div class="left-column">
-                <article class="panel world-panel">
-                  <div class="panel-head">
-                    <span>Overworld</span>
-                    <span id="worldHint">Arrows / WASD to move</span>
-                  </div>
-                  <canvas
-                    id="worldCanvas"
-                    class="world-canvas"
-                    width="288"
-                    height="288"
-                    aria-label="Pikibon overworld map"
-                  ></canvas>
-                  <div class="dpad-buttons">
-                    <button data-move="up" type="button">Up</button>
-                    <div class="dpad-row">
-                      <button data-move="left" type="button">Left</button>
-                      <button data-move="down" type="button">Down</button>
-                      <button data-move="right" type="button">Right</button>
-                    </div>
-                  </div>
-                </article>
-
-                <article class="panel battle-panel">
-                  <div class="battle-stage">
-                    <div class="battle-card foe">
-                      <div class="battle-info">
-                        <strong id="enemyName">No encounter</strong>
-                        <span id="enemyLevel">Lv.--</span>
-                      </div>
-                      <div class="hp-track"><div id="enemyHpBar"></div></div>
-                      <span id="enemyHpText">HP -- / --</span>
-                      <div class="battle-art foe-art">
-                        <img id="enemySprite" alt="" />
-                      </div>
-                    </div>
-
-                    <div class="battle-card ally">
-                      <div class="battle-art ally-art">
-                        <img id="allySprite" alt="" />
-                      </div>
-                      <div class="battle-info">
-                        <strong id="allyName">No partner</strong>
-                        <span id="allyLevel">Lv.--</span>
-                      </div>
-                      <div class="hp-track"><div id="allyHpBar"></div></div>
-                      <span id="allyHpText">HP -- / --</span>
-                    </div>
-                  </div>
-
-                  <div class="textbox panel" id="textbox">
-                    <p class="textbox-label" id="textboxLabel">Status</p>
-                    <p id="textboxText" class="textbox-text">Welcome to Pikibon.</p>
-                    <div id="textboxMenu" class="textbox-menu"></div>
-                  </div>
-                </article>
-              </div>
-
-              <aside class="right-column">
-                <article class="panel status-panel">
-                  <div class="panel-head">
-                    <span>Party</span>
-                    <span id="partyHint">Healthy lead wins fights</span>
-                  </div>
-                  <div id="partyList" class="party-list"></div>
-                </article>
-
-                <article class="panel status-panel">
-                  <div class="panel-head">
-                    <span>Field Guide</span>
-                    <span id="seenCount">0 seen</span>
-                  </div>
-                  <div class="dex-stats">
-                    <span id="caughtCount">0 caught</span>
-                    <span id="saveStateLabel">No save yet</span>
-                  </div>
-                  <div id="journalList" class="journal-list"></div>
-                </article>
-              </aside>
-            </section>
-          </section>
-        </main>
-      </div>
-
-      <div class="console-bottom" aria-hidden="true">
-        <div class="console-dpad">
-          <span class="console-cross vertical"></span>
-          <span class="console-cross horizontal"></span>
+      <div class="about-grid">
+        <div class="about-portrait">
+          <div class="portrait-frame">
+            <div class="portrait-placeholder">
+              <!-- Replace src with your portrait image -->
+              <span class="portrait-initials">A·J</span>
+            </div>
+          </div>
         </div>
-        <div class="console-buttons">
-          <span class="console-button">B</span>
-          <span class="console-button">A</span>
+
+        <div class="about-text">
+          <h2 class="section-heading">A lens on<br><em>the human story</em></h2>
+
+          <p class="body-copy">I am a filmmaker and videographer drawn to the places, people, and instants that most eyes pass over. My work moves between documentary and narrative — between the observed and the constructed — always searching for the image that holds its breath.</p>
+
+          <p class="body-copy">Born in the intersection of cultures, I have spent years cultivating a visual language that is spare, intentional, and grounded in the particular. Each frame is a decision. Each cut, an argument.</p>
+
+          <p class="body-copy pull-quote">"Cinema is a mirror by which we often see ourselves."</p>
+
+          <div class="about-credits">
+            <div class="credit-item">
+              <span class="credit-label">Based in</span>
+              <span class="credit-value">Athens, Greece</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-label">Specialisms</span>
+              <span class="credit-value">Documentary · Narrative · Commercial</span>
+            </div>
+            <div class="credit-item">
+              <span class="credit-label">Available for</span>
+              <span class="credit-value">Commissions &amp; Collaborations</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <script src="./app.js"></script>
-  </body>
+  <!-- DOORS OF ATHENS -->
+  <section class="section section--dark" id="doors">
+    <div class="container">
+      <div class="section-label section-label--light">
+        <span class="label-num">02</span>
+        <span class="label-text">Project</span>
+      </div>
+
+      <div class="doors-layout">
+        <div class="doors-heading-col">
+          <h2 class="section-heading section-heading--light">Doors<br>of Athens</h2>
+          <p class="doors-subtitle">An ongoing archive<br>of thresholds</p>
+        </div>
+
+        <div class="doors-content-col">
+          <p class="body-copy body-copy--light">Every door in Athens is a sentence. Some whisper of neoclassical grandeur; others scream in peeling paint and rust. All of them hold a world behind them — and a world in front.</p>
+
+          <p class="body-copy body-copy--light">Doors of Athens is an ongoing photographic and film archive documenting the entrances of one of the world's oldest inhabited cities. It is a meditation on thresholds: on what it means to enter, to leave, to stand at the boundary of two things.</p>
+
+          <p class="body-copy body-copy--light">What began as a private obsession has become a growing archive — a study in texture, colour, memory, and urban time. Each door is catalogued not only as an image but as a story waiting to be told.</p>
+
+          <a href="#contact" class="cta-link cta-link--light">Inquire about the project →</a>
+        </div>
+      </div>
+
+      <!-- Doors grid — replace divs with <img> tags when ready -->
+      <div class="doors-grid">
+        <div class="door-cell door-cell--tall">
+          <div class="door-placeholder">
+            <span class="door-label">I</span>
+          </div>
+        </div>
+        <div class="door-cell">
+          <div class="door-placeholder">
+            <span class="door-label">II</span>
+          </div>
+        </div>
+        <div class="door-cell">
+          <div class="door-placeholder">
+            <span class="door-label">III</span>
+          </div>
+        </div>
+        <div class="door-cell door-cell--wide">
+          <div class="door-placeholder">
+            <span class="door-label">IV</span>
+          </div>
+        </div>
+        <div class="door-cell">
+          <div class="door-placeholder">
+            <span class="door-label">V</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="section" id="work">
+    <div class="container">
+      <div class="section-label">
+        <span class="label-num">03</span>
+        <span class="label-text">Selected Work</span>
+      </div>
+
+      <h2 class="section-heading">Films &amp; Videos</h2>
+
+      <!-- Showreel -->
+      <div class="showreel">
+        <div class="showreel-frame">
+          <!-- Replace with an actual <iframe> embed from Vimeo or YouTube -->
+          <div class="showreel-placeholder">
+            <div class="play-button">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="30" cy="30" r="29" stroke="currentColor" stroke-width="1"/>
+                <path d="M24 20L44 30L24 40V20Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <p class="showreel-label">Showreel — 2024</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project list -->
+      <ul class="work-list">
+        <li class="work-item">
+          <div class="work-item-meta">
+            <span class="work-year">2024</span>
+            <span class="work-type">Documentary</span>
+          </div>
+          <div class="work-item-title">
+            <h3>Title of Film One</h3>
+            <p>A short description of the project — its subject, its mood, its intent.</p>
+          </div>
+          <a href="#" class="work-item-link" aria-label="View project">→</a>
+        </li>
+
+        <li class="work-item">
+          <div class="work-item-meta">
+            <span class="work-year">2023</span>
+            <span class="work-type">Narrative</span>
+          </div>
+          <div class="work-item-title">
+            <h3>Title of Film Two</h3>
+            <p>A short description of the project — its subject, its mood, its intent.</p>
+          </div>
+          <a href="#" class="work-item-link" aria-label="View project">→</a>
+        </li>
+
+        <li class="work-item">
+          <div class="work-item-meta">
+            <span class="work-year">2023</span>
+            <span class="work-type">Commercial</span>
+          </div>
+          <div class="work-item-title">
+            <h3>Title of Film Three</h3>
+            <p>A short description of the project — its subject, its mood, its intent.</p>
+          </div>
+          <a href="#" class="work-item-link" aria-label="View project">→</a>
+        </li>
+
+        <li class="work-item">
+          <div class="work-item-meta">
+            <span class="work-year">2022</span>
+            <span class="work-type">Documentary</span>
+          </div>
+          <div class="work-item-title">
+            <h3>Title of Film Four</h3>
+            <p>A short description of the project — its subject, its mood, its intent.</p>
+          </div>
+          <a href="#" class="work-item-link" aria-label="View project">→</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section--sand" id="contact">
+    <div class="container container--narrow">
+      <div class="section-label">
+        <span class="label-num">04</span>
+        <span class="label-text">Contact</span>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-heading-col">
+          <h2 class="section-heading">Let's make<br><em>something</em><br>together</h2>
+        </div>
+
+        <div class="contact-detail-col">
+          <p class="body-copy">For commissions, collaborations, screening inquiries, or simply to say hello — reach me directly.</p>
+
+          <div class="contact-links">
+            <a href="mailto:hello@alexjaschik.com" class="contact-link">
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-value">hello@alexjaschik.com</span>
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-label">Instagram</span>
+              <span class="contact-link-value">@alexjaschik</span>
+            </a>
+            <a href="https://vimeo.com/" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-label">Vimeo</span>
+              <span class="contact-link-value">vimeo.com/alexjaschik</span>
+            </a>
+          </div>
+
+          <div class="doors-link-block">
+            <p class="doors-link-label">Doors of Athens</p>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-label">Instagram</span>
+              <span class="contact-link-value">@doorsofathens</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© 2024 Alex Jaschik. All rights reserved.</p>
+      <a href="/game/" class="footer-game-link">Pikibon ↗</a>
+    </div>
+  </footer>
+
+  <script src="./portfolio.js"></script>
+</body>
 </html>
